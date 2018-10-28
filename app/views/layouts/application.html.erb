@@ -14,12 +14,10 @@
   <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
   <% end %>
 
-  <nav class="navbar navbar-default navbar-fixded-top navbar-transparent">
+  <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
     <div class="container">
       <%= link_to root_path do %>
-      <span>
-        <%= image_tag "icons/logo.png", class: "navbar-brand" %>
-      </span>
+      <span><%= image_tag "icons/logo.png", class: "navbar-brand" %></span>
       <% end %>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
@@ -54,14 +52,14 @@
     </div>
   </nav>
 
-
   <%= yield %>
+</body>
 
-  <script>
-  $(function(){
-    $(".alert").fadeOut(5000);
-  });
+<script>
+$(function(){
+  $(".alert").fadeOut(5000);
+});
 </script>
 
-</body>
+
 </html>
