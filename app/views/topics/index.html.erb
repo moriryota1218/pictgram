@@ -10,12 +10,24 @@
           <%= image_tag topic.image.url %>
           <% if !topic.favorite_users.include?(current_user) %>
            <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
-            <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
+          <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
            <% end %>
           <% end %>
+
+          <% if !topic.comment_users.include?(current_user) %>
+           <%= link_to new_comment_path(topic_id: topic.id) do %>
           <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+           <% end %>
+          <% end %>
           <p class="topic-text">
             <%= topic.description %>
+          </p>
+
+          <h3 class="comment-title">コメント</h3>
+          <p class="comment-text">
+            <% topic.comments.each do |comment| %>
+             <p><%= comment.description %></p>
+            <% end %>
           </p>
         </div>
       </div>
