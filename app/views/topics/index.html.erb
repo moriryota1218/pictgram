@@ -14,7 +14,7 @@
            <% end %>
           <% end %>
 
-          
+
            <%= link_to new_comment_path(topic_id: topic.id) do %>
           <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
            <% end %>
@@ -26,7 +26,7 @@
           <h3 class="comment-title">コメント</h3>
           <p class="comment-text">
             <% topic.comments.each do |comment| %>
-             <p><%= comment.description %></p>
+             <%= comment.description %></p>
             <% end %>
           </p>
         </div>
